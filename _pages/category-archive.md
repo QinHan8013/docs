@@ -1,5 +1,5 @@
 ---
-title: "类别分类"
+title: "类别"
 layout: categories
 permalink: /categories/
 author_profile: true
