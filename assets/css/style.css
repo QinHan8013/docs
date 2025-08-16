@@ -1,8 +1,8 @@
 body { font-family: "Helvetica Neue", sans-serif; background: #ADD8E6; margin: 0; }
-header { background: #333; color: #4682B4; padding: 1rem; }
+header { background: #4682B4; color: #000000; padding: 1rem; }
 header a { color: #fff; margin-right: 1rem; text-decoration: none; }
 .container { display: flex; max-width: 1000px; margin: 20px auto; }
 main { flex: 3; padding: 20px; background: #fff; }
-aside { flex: 1; padding: 20px; background: #eee; margin-left: 20px; }
-footer { text-align: center; padding: 10px; background: #333; color: #ADD8E6; margin-top: 20px; }
+aside { flex: 1; padding: 20px; background: #eee; margin-left: 30px; }
+footer { text-align: center; padding: 10px; background: #333; color: #ADD8E6; margin-top: 40px; }
 h1, h2 { margin-top: 0; }
