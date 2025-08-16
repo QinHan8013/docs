@@ -1,5 +1,5 @@
 ---
 permalink: /about/
-title: "About"
+title: "关于"
 ---
 
