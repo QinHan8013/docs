@@ -13,42 +13,29 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: 文档
-email:
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
-minimal_mistakes_skin: default
-search: true
+title: "文档"
+email: "yourname@example.com" # 建议换成你的真实邮箱
+description: >-
+twitter_username: your_twitter # 如果没有，可以删掉
+github_username: qinhan8013 # 换成你的 GitHub 用户名
+minimal_mistakes_skin: default # 可选: default, dark, neon, air, contrast
+search: false
 
-# Build settings
+# 构建设置
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
-# Outputting
+theme: "minimal-mistakes-jekyll"
+
+# 输出设置
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+paginate: 5
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Shanghai
+locale: zh-Hans
 
 include:
   - _pages
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
-# Plugins (previously gems:)
+# 插件
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -57,32 +44,38 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
+# 作者信息
 author:
-  name   : "秦汉"
-  avatar : "/assets/images/bio-photo.jpg"
- 
+  name: "秦汉"
+  avatar: "/assets/images/bio-photo.jpg"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://"
-   
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/qinhan8013"
+    - label: "微博"
+      icon: "fab fa-fw fa-weibo"
+      url: "https://weibo.com/"
+    - label: "知乎"
+      icon: "fas fa-fw fa-book"
+      url: "https://www.zhihu.com/people/"
 
-
-    
-
+# 默认设置
 defaults:
-  # _posts
+  # 博文
   - scope:
       path: ""
       type: posts
     values:
       layout: single
       author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
-  # _pages
+      read_time: false # 已关闭
+      comments: false # 已关闭
+      share: false
+      related: false
+  # 页面
   - scope:
       path: "_pages"
       type: pages
@@ -90,6 +83,7 @@ defaults:
       layout: single
       author_profile: true
 
+# 分类与标签归档
 category_archive:
   type: liquid
   path: /categories/
