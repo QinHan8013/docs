@@ -1,0 +1,47 @@
+name: Build and Deploy Jekyll site
+
+on:
+  push:
+    branches: ["main"] # 你可以改成你默认分支名
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 拉取仓库
+      - uses: actions/checkout@v4
+
+      # 安装 Ruby 并启用 bundler 缓存
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1 # 与本地 Ruby 版本一致
+          bundler-cache: true
+
+      # 安装依赖
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+
+      # 构建 Jekyll 网站
+      - name: Build site
+        run: bundle exec jekyll build
+
+      # 上传构建产物到 GitHub Pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
